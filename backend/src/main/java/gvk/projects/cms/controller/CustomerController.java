@@ -5,7 +5,7 @@ import gvk.projects.cms.dto.CustomerResponseDto;
 import gvk.projects.cms.dto.CustomerSummaryDto;
 import gvk.projects.cms.service.CustomerService;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,6 +1,6 @@
 package gvk.projects.cms.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;

@@ -58,7 +58,7 @@ public class CustomerService {
         if (dto.getPhoneNumbers() != null) {
             customer.getPhoneNumbers().clear();
             dto.getPhoneNumbers().stream()
-                    .filter(num -> num != null && !num.isBlank())
+                    .filter(num -> num != null && !num.trim().isEmpty())
                     .forEach(num -> {
                         PhoneNumber phone = new PhoneNumber();
                         phone.setNumber(num.trim());
@@ -124,7 +124,7 @@ public class CustomerService {
         // Phone numbers
         if (dto.getPhoneNumbers() != null) {
             dto.getPhoneNumbers().stream()
-                .filter(num -> num != null && !num.isBlank())
+                .filter(num -> num != null && !num.trim().isEmpty())
                 .forEach(num -> {
                     PhoneNumber phone = new PhoneNumber();
                     phone.setNumber(num.trim());

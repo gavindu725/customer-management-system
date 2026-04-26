@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,12 +17,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiError> handleNotFound(ResourceNotFoundException ex) {
-        return buildResponse(HttpStatus.NOT_FOUND, List.of(ex.getMessage()));
+        return buildResponse(HttpStatus.NOT_FOUND, Collections.singletonList(ex.getMessage()));
     }
 
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<ApiError> handleBusiness(BusinessException ex) {
-        return buildResponse(HttpStatus.BAD_REQUEST, List.of(ex.getMessage()));
+        return buildResponse(HttpStatus.BAD_REQUEST, Collections.singletonList(ex.getMessage()));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -35,7 +36,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> handleGeneral(Exception ex) {
-        return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, List.of("An unexpected error occurred"));
+        return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, Collections.singletonList("An unexpected error occurred"));
     }
 
     private ResponseEntity<ApiError> buildResponse(HttpStatus status, List<String> messages) {
