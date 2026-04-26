@@ -1,0 +1,201 @@
+{
+  "info": {
+    "_postman_id": "fd875f63-85a5-4ff1-b404-c539d2743b40",
+    "name": "Customer Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "33577784",
+    "_collection_link": "https://go.postman.co/collection/33577784-fd875f63-85a5-4ff1-b404-c539d2743b40?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Master Endpoints",
+      "item": [
+        {
+          "name": "Get All Countries",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/master/countries",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "master",
+                "countries"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Cities By Country",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/master/countries/1/cities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "master",
+                "countries",
+                "1",
+                "cities"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Cities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/master/cities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "master",
+                "cities"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Customer Endpoints",
+      "item": [
+        {
+          "name": "Create a New Customer",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"dateOfBirth\": \"1990-05-15\",\r\n  \"nicNumber\": \"NIC123456\",\r\n  \"phoneNumbers\": [\"0771234567\", \"0112345678\"],\r\n  \"addresses\": [\r\n    {\r\n      \"addressLine1\": \"123 Main Street\",\r\n      \"addressLine2\": \"Colombo 03\",\r\n      \"cityId\": 1,\r\n      \"countryId\": 1\r\n    }\r\n  ],\r\n  \"familyMemberIds\": [2]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Customer",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"John Updated\",\r\n  \"dateOfBirth\": \"1990-05-15\",\r\n  \"nicNumber\": \"NIC123457\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers/7",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customers",
+                "7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Customer By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/customers/7",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customers",
+                "7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Customers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/customers?size=20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customers"
+              ],
+              "query": [
+                {
+                  "key": "size",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}
